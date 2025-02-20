@@ -1,0 +1,219 @@
+:root {
+  /* New modern color scheme */
+  --primary-color: #4ecca3;       /* A fresh teal */
+  --secondary-color: #ff6b6b;     /* A vibrant coral */
+  --background-color: #1d1f21;    /* Dark background */
+  --text-color: #ffffff;
+  --glass-bg: rgba(255, 255, 255, 0.1);
+  --glass-border: rgba(255, 255, 255, 0.2);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+/* Navigation with a subtle glass effect */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 5%;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+}
+
+nav a {
+  color: var(--text-color);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: var(--primary-color);
+}
+
+/* Hero Section */
+.hero {
+  height: 90vh;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url('https://images.unsplash.com/photo-1587202372634-32705e3bf49c?auto=format&fit=crop&w=1500&q=80');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 2rem;
+}
+
+.hero-content {
+  max-width: 800px;
+}
+
+.hero h1 {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+/* Primary Call-to-Action Button */
+.cta-button {
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  font-weight: bold;
+  color: var(--text-color);
+  text-decoration: none;
+  border-radius: 50px;
+  transition: transform 0.3s, opacity 0.3s;
+  cursor: pointer;
+  background: var(--primary-color);
+}
+
+.cta-button:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
+
+/* Glassmorphism effect for buttons */
+.glass-btn {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* Reviews Carousel */
+.reviews-carousel {
+  padding: 4rem 0;
+  background-color: #121212;
+  text-align: center;
+}
+
+.reviews-carousel h2 {
+  margin-bottom: 2rem;
+  font-size: 2rem;
+}
+
+.carousel {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.carousel-container {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.review-slide {
+  min-width: 100%;
+  padding: 2rem;
+}
+
+.stars {
+  color: gold;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.reviewer {
+  display: block;
+  margin-top: 1rem;
+  color: #888;
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 0.8rem;
+  cursor: pointer;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s;
+}
+
+.carousel-btn:hover {
+  background-color: var(--secondary-color);
+}
+
+.prev {
+  left: 10px;
+}
+
+.next {
+  right: 10px;
+}
+
+/* Payment Section with Glassmorphism */
+.payment-section {
+  padding: 4rem 5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1500&q=80')
+    no-repeat center center/cover;
+}
+
+.payment-container {
+  background: var(--glass-bg);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 10px;
+  border: 1px solid var(--glass-border);
+  padding: 2rem;
+  text-align: center;
+  max-width: 400px;
+  width: 100%;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+  
+  nav ul {
+    gap: 1rem;
+  }
+}

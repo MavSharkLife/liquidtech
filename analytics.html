@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detailed Site Analytics Dashboard</title>
+    <style>
+        body {
+            background-color: #1a1a1a;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        .dashboard {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 20px;
+        }
+        .card {
+            background-color: #2d2d2d;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            max-height: 500px;
+            overflow-y: auto;
+        }
+        .action-log {
+            font-family: monospace;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        .action-item {
+            padding: 5px;
+            border-bottom: 1px solid #3d3d3d;
+        }
+        .action-time {
+            color: #00ff9d;
+        }
+        h1, h2 {
+            color: #00ff9d;
+        }
+        #mouseCanvas {
+            background-color: #2d2d2d;
+            border-radius: 8px;
+        }
+        .filter-controls {
+            margin-bottom: 20px;
+        }
+        select, button {
+            background-color: #3d3d3d;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Detailed Site Analytics Dashboard</h1>
+
+    <div class="filter-controls">
+        <select id="pageFilter">
+            <option value="all">All Pages</option>
+        </select>
+        <button onclick="clearAnalytics()">Clear Data</button>
+    </div>
+
+    <div class="dashboard">
+        <div class="card">
+            <h2>Page Views</h2>
+            <div id="pageViews"></div>
+        </div>
+
+        <div class="card">
+            <h2>Recent User Actions</h2>
+            <div id="userActions" class="action-log"></div>
+        </div>
+
+        <div class="card">
+            <h2>Mouse Movement Heatmap</h2>
+            <canvas id="mouseCanvas" width="400" height="300"></canvas>
+        </div>
+
+        <div class="card">
+            <h2>Session Statistics</h2>
+            <div id="timeSpent"></div>
+            <div id="actionStats"></div>
+        </div>
+    </div>
+
+    <script src="/analytics-tracker.js"></script>
+    <script>
+        function clearAnalytics() {
+            if (confirm('Are you sure you want to clear all analytics data?')) {
+                localStorage.removeItem('siteAnalytics');
+                location.reload();
+            }
+        }
+
+        // Update dashboard every second
+        setInterval(updateDashboard, 1000);
+
+        // Draw mouse movement heatmap
+        function drawHeatmap() {
+            const canvas = document.getElementById('mouseCanvas');
+            const ctx = canvas.getContext('2d');
+            const analytics = JSON.parse(localStorage.getItem('siteAnalytics'));
+
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            analytics.mouseMovements.forEach(move => {
+                ctx.fillStyle = 'rgba(0, 255, 157, 0.1)';
+                ctx.beginPath();
+                ctx.arc(move.x, move.y, 5, 0, Math.PI * 2);
+                ctx.fill();
+            });
+        }
+
+        // Update heatmap every 100ms
+        setInterval(drawHeatmap, 100);
+    </script>
+</body>
+</html>
