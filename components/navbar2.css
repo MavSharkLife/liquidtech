@@ -1,9 +1,11 @@
 .navbar2-container {
   width: 100%;
   display: flex;
-  position: relative;
+  position: fixed;
   justify-content: center;
   background-color: #030303;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
 }
 
 .navbar2-navbar-interactive {
@@ -19,6 +21,11 @@
 
 .navbar2-image1 {
   height: 3rem;
+  transition: transform 0.3s ease;
+}
+
+.navbar2-image1:hover {
+  transform: scale(1.05);
 }
 
 .navbar2-desktop-menu {
@@ -36,13 +43,72 @@
   justify-content: flex-end;
 }
 
+/* Nav link styling */
+.navbar2-links1 a, .navbar2-links2 a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.navbar2-links1 a:hover, .navbar2-links2 a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+.navbar2-links1 a:active, .navbar2-links2 a:active {
+  transform: translateY(1px);
+}
+
+/* Add hover effect for links */
+.navbar2-links1 a::after, .navbar2-links2 a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #fff;
+  transition: width 0.3s ease;
+}
+
+.navbar2-links1 a:hover::after, .navbar2-links2 a:hover::after {
+  width: 100%;
+}
+
+/* Icon animation */
+.navbar2-links1 i, .navbar2-links2 i {
+  transition: transform 0.3s ease;
+}
+
+.navbar2-links1 a:hover i, .navbar2-links2 a:hover i {
+  transform: translateY(-2px);
+}
+
 .navbar2-burger-menu {
   display: none;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.navbar2-burger-menu:hover {
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 .navbar2-icon10 {
   width: var(--dl-size-size-xsmall);
   height: var(--dl-size-size-xsmall);
+  transition: transform 0.3s ease;
+}
+
+.navbar2-burger-menu:hover .navbar2-icon10 {
+  transform: scale(1.1);
 }
 
 .navbar2-mobile-menu {
@@ -57,6 +123,54 @@
   flex-direction: column;
   justify-content: space-between;
   background-color: #030303;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Additional animations for mobile menu */
+.menu-open {
+  animation: slideIn 0.3s ease forwards;
+}
+
+@keyframes slideIn {
+  from { transform: translateX(-100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+/* Icon animations */
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+@keyframes bounce {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+  100% { transform: translateY(0); }
+}
+
+.icon-pulse {
+  animation: pulse 0.5s ease infinite;
+}
+
+.icon-bounce {
+  animation: bounce 0.3s ease;
+}
+
+/* Navbar scroll effects */
+.navbar-scrolled {
+  padding: 5px 0;
+  background-color: rgba(3, 3, 3, 0.95);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.navbar-hidden {
+  transform: translateY(-100%);
 }
 
 .navbar2-nav {
@@ -75,17 +189,35 @@
 
 .navbar2-logo {
   height: 3rem;
+  transition: transform 0.3s ease;
+}
+
+.navbar2-logo:hover {
+  transform: scale(1.05);
 }
 
 .navbar2-close-menu {
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
+}
+
+.navbar2-close-menu:hover {
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 .navbar2-icon12 {
   width: var(--dl-size-size-xsmall);
   height: var(--dl-size-size-xsmall);
+  transition: transform 0.3s ease;
+}
+
+.navbar2-close-menu:hover .navbar2-icon12 {
+  transform: rotate(90deg);
 }
 
 .navbar2-links2 {
@@ -102,46 +234,35 @@
   display: flex;
 }
 
-.navbar2-fragment1 {
-  display: contents;
+.navbar2-icon-group svg {
+  transition: transform 0.3s ease, color 0.3s ease;
+  cursor: pointer;
 }
 
-.navbar2-text1 {
-  display: inline-block;
+.navbar2-icon-group svg:hover {
+  transform: scale(1.2);
+  color: #ffffff;
 }
 
-.navbar2-fragment2 {
-  display: contents;
-}
-
-.navbar2-text2 {
-  display: inline-block;
-}
-
-.navbar2-fragment3 {
-  display: contents;
-}
-
-.navbar2-text3 {
-  display: inline-block;
-}
-
-.navbar2-fragment4 {
-  display: contents;
-}
-
-.navbar2-text4 {
-  display: inline-block;
-}
-
+/* Fragment elements */
+.navbar2-fragment1, 
+.navbar2-fragment2,
+.navbar2-fragment3,
+.navbar2-fragment4,
 .navbar2-fragment5 {
   display: contents;
 }
 
+.navbar2-text1, 
+.navbar2-text2,
+.navbar2-text3,
+.navbar2-text4,
 .navbar2-text5 {
   display: inline-block;
+  transition: color 0.3s ease;
 }
 
+/* Root class names */
 .navbar2root-class-name {
   z-index: 3;
   position: fixed;
@@ -172,6 +293,13 @@
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+  .navbar2-mobile-menu {
+    padding: var(--dl-space-space-twounits);
+  }
+  .navbar2-links2 a {
+    width: 100%;
+    margin-bottom: 8px;
   }
 }
 

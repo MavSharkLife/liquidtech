@@ -112,6 +112,11 @@
     .gallery8-slider {
         max-width: 100%;
     }
+    .gallery8-text18 {
+        margin-bottom: 30px;
+        width: 70%;
+
+    }
 }
 .navbar2-container {
   width: 100%;
@@ -130,6 +135,9 @@
   padding-right: var(--dl-space-space-threeunits);
   padding-bottom: var(--dl-space-space-twounits);
   justify-content: space-between;
+  position: fixed;
+  z-index: 199;
+  background-color: #030303;
 }
 
 .navbar2-image1 {
@@ -297,5 +305,10 @@
   }
   .navbar2-mobile-menu {
     padding: var(--dl-space-space-unit);
+  }
+  .gallery8-text18 {
+      margin-bottom: 30px;
+      width: 50%;
+
   }
 }

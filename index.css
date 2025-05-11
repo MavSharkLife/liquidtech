@@ -164,7 +164,7 @@
   position: fixed;
 }
 
-@media(max-width: 767px) {
+@media (max-width: 767px) {
   .navbar2-navbar-interactive {
     padding-left: var(--dl-space-space-twounits);
     padding-right: var(--dl-space-space-twounits);
@@ -179,7 +179,7 @@
   }
 }
 
-@media(max-width: 479px) {
+@media (max-width: 479px) {
   .navbar2-navbar-interactive {
     padding: var(--dl-space-space-unit);
     padding-right: 16px;
@@ -195,7 +195,11 @@
 
 .hero16-header76 {
   display: flex;
-  background-image: linear-gradient(135deg, rgb(38, 38, 38) 2.00%,rgb(4, 4, 4) 100.00%);
+  background-image: linear-gradient(
+    135deg,
+    rgb(38, 38, 38) 2%,
+    rgb(4, 4, 4) 100%
+  );
 }
 
 .hero16-max-width {
@@ -220,7 +224,6 @@
   animation-direction: normal;
   animation-iteration-count: 1;
   animation-timing-function: ease;
-  margin-top: 10px;
 }
 
 .hero16-text1 {
@@ -237,6 +240,8 @@
 .hero16-button {
   z-index: 2;
   align-self: center;
+  color: white;
+  background-color: var(--primary-color);
 }
 
 .hero16-text3 {
@@ -336,7 +341,6 @@
 
 .home-text16 {
   display: inline-block;
-
 }
 
 .home-fragment15 {
@@ -352,7 +356,7 @@
   background-color: #050505;
 }
 
-@media(max-width: 991px) {
+@media (max-width: 991px) {
   .hero16-max-width {
     flex-direction: column;
   }
@@ -368,7 +372,7 @@
   }
 }
 
-@media(max-width: 767px) {
+@media (max-width: 767px) {
   .hero16-column {
     padding-top: var(--dl-space-space-threeunits);
     padding-left: var(--dl-space-space-threeunits);
@@ -383,7 +387,7 @@
   }
 }
 
-@media(max-width: 479px) {
+@media (max-width: 479px) {
   .hero16-column {
     padding-top: var(--dl-space-space-oneandhalfunits);
     padding-left: var(--dl-space-space-oneandhalfunits);
@@ -643,13 +647,13 @@
   display: inline-block;
 }
 
-@media(max-width: 991px) {
+@media (max-width: 991px) {
   .testimonial4-max-width {
     gap: var(--dl-space-space-threeunits);
   }
 }
 
-@media(max-width: 767px) {
+@media (max-width: 767px) {
   .testimonial4-section-title {
     width: 100%;
     max-width: 800px;
@@ -905,7 +909,7 @@
   display: inline-block;
 }
 
-@media(max-width: 991px) {
+@media (max-width: 991px) {
   .features41-row {
     width: auto;
     align-items: center;
@@ -922,13 +926,13 @@
   }
 }
 
-@media(max-width: 767px) {
+@media (max-width: 767px) {
   .features41-text10 {
     text-align: center;
   }
 }
 
-@media(max-width: 479px) {
+@media (max-width: 479px) {
   .features41-max-width {
     gap: var(--dl-space-space-oneandhalfunits);
   }
